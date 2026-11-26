@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "cd ZapDocs-Realestate-FE && npm install",
+  "buildCommand": "cd ZapDocs-Realestate-FE && npm run build",
+  "outputDirectory": "ZapDocs-Realestate-FE/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
