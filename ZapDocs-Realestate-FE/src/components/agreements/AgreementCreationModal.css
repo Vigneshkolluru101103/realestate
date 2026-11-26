@@ -1,0 +1,349 @@
+/* Agreement Creation Modal Styles */
+
+.zd-agreement-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.zd-agreement-modal-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 660px;
+  max-height: min(90vh, calc(100dvh - 32px));
+  display: flex;
+  flex-direction: column;
+  animation: zdModalSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+@keyframes zdModalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Modal Header */
+.zd-agreement-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--color-surface);
+}
+
+.zd-agreement-modal-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.zd-agreement-modal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-brand);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.zd-agreement-modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.zd-agreement-modal-subtitle {
+  font-size: var(--zd-font-size-sm);
+  color: var(--zd-text-secondary);
+}
+
+.zd-agreement-modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--zd-text-muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--zd-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--zd-transition-fast);
+}
+
+.zd-agreement-modal-close-btn:hover {
+  color: var(--zd-text-primary);
+  background-color: var(--zd-color-surface-hover);
+}
+
+/* Modal Body */
+.zd-agreement-modal-body {
+  padding: var(--zd-space-5);
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1 1 auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-5);
+}
+
+/* Quota & Billing Status Banner */
+.zd-agreement-quota-banner {
+  border-radius: var(--zd-radius-lg);
+  padding: var(--zd-space-4);
+  font-size: var(--zd-font-size-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-2);
+}
+
+.zd-agreement-quota-banner--plan {
+  background-color: var(--zd-color-primary-light);
+  border: 1px solid var(--zd-color-primary-border);
+  color: var(--zd-text-primary);
+}
+
+.zd-agreement-quota-banner--payperdoc {
+  background-color: #F8FAFC;
+  border: 1px solid var(--zd-color-border);
+  color: var(--zd-text-primary);
+}
+
+.zd-agreement-quota-banner--danger {
+  background-color: var(--zd-color-danger-bg);
+  border: 1px solid var(--zd-color-danger-border);
+  color: #991B1B;
+}
+
+.zd-agreement-quota-banner--warning {
+  background-color: var(--zd-color-warning-bg);
+  border: 1px solid var(--zd-color-warning-border);
+  color: #92400E;
+}
+
+.zd-quota-banner-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zd-space-2);
+  flex-wrap: wrap;
+}
+
+.zd-quota-banner-title {
+  font-weight: var(--zd-font-weight-bold);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zd-quota-banner-desc {
+  font-size: var(--zd-font-size-xs);
+  line-height: var(--zd-line-height-normal);
+  color: var(--zd-text-secondary);
+}
+
+/* Form Sections */
+.zd-form-section-title {
+  font-size: var(--zd-font-size-sm);
+  font-weight: var(--zd-font-weight-bold);
+  color: var(--zd-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-bottom: var(--zd-space-2);
+  border-bottom: 1px solid var(--zd-color-border-subtle);
+  margin-top: var(--zd-space-1);
+}
+
+.zd-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--zd-space-4);
+}
+
+@media (max-width: 640px) {
+  .zd-form-row {
+    grid-template-columns: 1fr;
+    gap: var(--zd-space-3);
+  }
+}
+
+.zd-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zd-form-label {
+  font-size: var(--zd-font-size-sm);
+  font-weight: var(--zd-font-weight-semibold);
+  color: var(--zd-text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zd-form-label-required {
+  color: var(--zd-color-danger);
+  margin-left: 3px;
+}
+
+.zd-form-label-subtext {
+  font-size: var(--zd-font-size-xs);
+  font-weight: var(--zd-font-weight-normal);
+  color: var(--zd-text-muted);
+}
+
+.zd-form-input,
+.zd-form-select,
+.zd-form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+}
+
+.zd-form-input:focus,
+.zd-form-select:focus,
+.zd-form-textarea:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.zd-form-input--error,
+.zd-form-select--error,
+.zd-form-textarea--error {
+  border-color: var(--status-error) !important;
+  background-color: var(--status-error-bg);
+}
+
+.zd-form-error-msg {
+  font-size: 11.5px;
+  color: var(--status-error);
+  font-weight: 500;
+}
+
+/* Client Selector Toggle */
+.zd-client-picker-card {
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zd-client-picker-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zd-space-2);
+}
+
+.zd-client-mode-btn {
+  font-size: 12px;
+  color: var(--color-brand);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.zd-client-mode-btn:hover {
+  color: var(--color-brand-hover);
+}
+
+.zd-client-selected-badge {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Calculated summary card */
+.zd-agreement-preview-box {
+  background-color: var(--color-surface-subtle);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  font-size: 12px;
+}
+
+.zd-preview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zd-preview-item__label {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.zd-preview-item__val {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+/* Disclaimer Notice */
+.zd-agreement-disclaimer {
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  display: flex;
+  gap: 8px;
+}
+
+/* Modal Footer */
+.zd-agreement-modal-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--color-surface-subtle);
+  flex-wrap: wrap;
+}

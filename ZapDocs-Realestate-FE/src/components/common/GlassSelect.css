@@ -1,0 +1,298 @@
+/* ==========================================================================
+   ZapDocs Glassmorphism Select / Dropdown Component Styles
+   ========================================================================== */
+
+.zd-glass-select-container {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+}
+
+/* Hidden native select for form data & automated testing */
+.zd-glass-select-native {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Trigger Button */
+.zd-glass-select-trigger {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--zd-control-height, 42px);
+  height: var(--zd-control-height, 42px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 11px;
+  background: var(--zd-surface-control, rgba(255, 255, 255, 0.78));
+  backdrop-filter: blur(10px);
+  backdrop-filter: var(--zd-blur-control, blur(10px));
+  -webkit-backdrop-filter: var(--zd-blur-control, blur(10px));
+  border: 1px solid var(--zd-border-glass, rgba(203, 213, 225, 0.72));
+  border-radius: var(--zd-radius-control, 11px);
+  color: #1e293b;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.zd-glass-select-trigger:hover:not(:disabled) {
+  background: var(--zd-surface-control-hover, rgba(255, 255, 255, 0.96));
+  border-color: #93c5fd;
+  box-shadow: 0 3px 10px -2px rgba(15, 23, 42, 0.05);
+}
+
+.zd-glass-select-trigger.active,
+.zd-glass-select-trigger:focus-visible {
+  outline: none;
+  background: var(--zd-surface-control-hover, rgba(255, 255, 255, 0.96));
+  border-color: #3b82f6;
+  box-shadow: var(--zd-focus-ring, 0 0 0 3px rgba(59, 130, 246, 0.15));
+}
+
+.zd-glass-select-container.is-disabled .zd-glass-select-trigger {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: rgba(248, 250, 252, 0.6);
+}
+
+.zd-glass-select-trigger-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.zd-glass-select-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.zd-glass-select-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1e293b;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.zd-glass-select-label.is-placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+  font-size: 12.5px;
+}
+
+.zd-glass-select-chevron {
+  color: #64748b;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zd-glass-select-chevron.rotate-180 {
+  transform: rotate(180deg);
+  color: #2563eb;
+}
+
+/* Floating Glassmorphism Options Panel */
+.zd-glass-select-panel {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background: var(--zd-surface-floating, rgba(255, 255, 255, 0.97));
+  backdrop-filter: blur(22px) saturate(165%);
+  backdrop-filter: var(--zd-blur-floating, blur(22px) saturate(165%));
+  -webkit-backdrop-filter: var(--zd-blur-floating, blur(22px) saturate(165%));
+  border: 1px solid var(--zd-border-glass, rgba(203, 213, 225, 0.72));
+  border-radius: 12px;
+  box-shadow: var(--zd-shadow-floating, 0 20px 48px -12px rgba(15, 23, 42, 0.22));
+  padding: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  animation: zdGlassDropdownIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zd-glass-select-panel.open-upward {
+  top: auto;
+  bottom: calc(100% + 5px);
+}
+
+@keyframes zdGlassDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Slim Glass Scrollbar */
+.zd-glass-select-panel::-webkit-scrollbar {
+  width: 5px;
+}
+.zd-glass-select-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+.zd-glass-select-panel::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+.zd-glass-select-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+/* Search bar inside panel */
+.zd-glass-select-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  background: rgba(241, 245, 249, 0.85);
+  border-radius: 8px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.zd-glass-select-search-icon {
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.zd-glass-select-search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 12.5px;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+}
+
+/* Option Items */
+.zd-glass-select-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.14s ease;
+  color: #1e293b;
+  font-size: 13px;
+  margin-bottom: 2px;
+  user-select: none;
+}
+
+.zd-glass-select-option:last-child {
+  margin-bottom: 0;
+}
+
+.zd-glass-select-option-dash {
+  color: #94a3b8;
+  font-weight: 700;
+  width: 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.zd-glass-select-option-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.zd-glass-select-option-info {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.zd-glass-select-option-name {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.zd-glass-select-option-subtitle {
+  color: #475467;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.zd-glass-select-option-text.is-placeholder-text {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.zd-glass-select-check {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Hover & Keyboard Highlight */
+.zd-glass-select-option:hover,
+.zd-glass-select-option.is-highlighted {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.zd-glass-select-option:hover .zd-glass-select-option-name,
+.zd-glass-select-option.is-highlighted .zd-glass-select-option-name {
+  color: #1e3a8a;
+}
+
+.zd-glass-select-option:hover .zd-glass-select-option-subtitle,
+.zd-glass-select-option.is-highlighted .zd-glass-select-option-subtitle {
+  color: #2563eb;
+}
+
+.zd-glass-select-option:hover .zd-glass-select-option-icon,
+.zd-glass-select-option.is-highlighted .zd-glass-select-option-icon {
+  color: #1d4ed8;
+}
+
+/* Selected State */
+.zd-glass-select-option.is-selected {
+  background: rgba(219, 234, 254, 0.6);
+}
+
+.zd-glass-select-option.is-selected .zd-glass-select-option-name {
+  color: #1d4ed8;
+}
+
+.zd-glass-select-empty {
+  padding: 14px;
+  text-align: center;
+  color: #64748b;
+  font-size: 12.5px;
+}

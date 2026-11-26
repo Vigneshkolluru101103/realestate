@@ -1,0 +1,277 @@
+.zd-drawer-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+}
+
+.zd-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: zdFadeIn var(--zd-transition-fast) forwards;
+}
+
+.zd-drawer {
+  position: relative;
+  width: 280px;
+  max-width: 85vw;
+  height: 100%;
+  background: var(--zd-surface-floating, rgba(255, 255, 255, 0.96));
+  border-right: 1px solid var(--zd-border-glass, rgba(203, 213, 225, 0.72));
+  backdrop-filter: var(--zd-blur-floating, blur(22px) saturate(165%));
+  -webkit-backdrop-filter: var(--zd-blur-floating, blur(22px) saturate(165%));
+  box-shadow: var(--zd-shadow-floating, 0 24px 64px -18px rgba(15, 23, 42, 0.32));
+  display: flex;
+  flex-direction: column;
+  z-index: 51;
+  animation: zdSlideIn var(--zd-transition-normal) cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes zdFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zdSlideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.zd-drawer__header {
+  height: var(--zd-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--zd-space-4);
+  border-bottom: 1px solid var(--zd-color-border);
+}
+
+.zd-drawer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--zd-space-3);
+}
+
+.zd-drawer__logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--zd-radius-md);
+  background-color: var(--zd-color-primary-light);
+  flex-shrink: 0;
+}
+
+.zd-drawer__brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.zd-drawer__brand-title {
+  font-size: var(--zd-font-size-base);
+  font-weight: var(--zd-font-weight-bold);
+  color: var(--zd-text-primary);
+  line-height: var(--zd-line-height-tight);
+}
+
+.zd-drawer__brand-badge {
+  font-size: var(--zd-font-size-xs);
+  color: var(--zd-color-primary);
+  font-weight: var(--zd-font-weight-medium);
+}
+
+.zd-drawer__close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--zd-radius-md);
+  color: #334155;
+  border: 1px solid var(--zd-color-border);
+  background-color: var(--zd-color-surface);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zd-drawer__close-btn:hover {
+  background-color: var(--zd-color-surface-hover);
+  color: var(--zd-text-primary);
+  transform: scale(1.05);
+}
+
+.zd-drawer__close-btn:active {
+  transform: scale(0.92);
+}
+
+.zd-drawer__link:active {
+  transform: scale(0.98);
+}
+
+.zd-drawer__nav {
+  flex: 1;
+  padding: var(--zd-space-4) var(--zd-space-3);
+  overflow-y: auto;
+}
+
+.zd-drawer__section-label {
+  padding: 6px 12px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #475569;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.zd-drawer__section-label--growth {
+  padding: 16px 12px 8px;
+}
+
+.zd-drawer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-1);
+}
+
+.zd-drawer__item {
+  width: 100%;
+}
+
+.zd-drawer__link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--zd-space-3);
+  padding: var(--zd-space-3) var(--zd-space-3);
+  min-height: 44px;
+  border-radius: var(--zd-radius-md);
+  color: #1e293b;
+  font-size: 13.5px;
+  font-weight: 550;
+  transition: all var(--zd-transition-fast);
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: #f8fafc;
+}
+
+.zd-drawer__label {
+  color: #1e293b;
+  font-size: 13.5px;
+  font-weight: 550;
+  flex: 1;
+  letter-spacing: -0.01em;
+}
+
+.zd-drawer__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  flex-shrink: 0;
+  transition: color var(--zd-transition-fast);
+}
+
+.zd-drawer__link:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.zd-drawer__link:hover .zd-drawer__label {
+  color: #0f172a;
+}
+
+.zd-drawer__link:hover .zd-drawer__icon {
+  color: #0f172a;
+}
+
+.zd-drawer__link--active {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  font-weight: 650 !important;
+  border-color: #bfdbfe !important;
+}
+
+.zd-drawer__link--active .zd-drawer__label {
+  color: #1d4ed8 !important;
+  font-weight: 650 !important;
+}
+
+.zd-drawer__link--active .zd-drawer__icon {
+  color: #2563eb !important;
+}
+
+.zd-drawer__footer {
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border-top: 1px solid var(--zd-color-border);
+  background-color: var(--zd-color-surface);
+}
+
+.zd-drawer__user-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zd-space-2);
+}
+
+.zd-drawer__user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.zd-drawer__user-name {
+  font-size: var(--zd-font-size-sm);
+  font-weight: var(--zd-font-weight-semibold);
+  color: var(--zd-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zd-drawer__user-id {
+  font-size: var(--zd-font-size-xs);
+  color: var(--zd-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zd-drawer__logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--zd-radius-md);
+  color: var(--zd-text-secondary);
+  background: transparent;
+  border: 1px solid var(--zd-color-border);
+  flex-shrink: 0;
+  transition: all var(--zd-transition-fast);
+}
+
+.zd-drawer__logout-btn:hover {
+  background-color: var(--zd-color-danger-bg);
+  color: var(--zd-color-danger);
+  border-color: var(--zd-color-danger-border);
+}
+
+.zd-drawer__status {
+  display: flex;
+  align-items: center;
+  gap: var(--zd-space-2);
+}
+
+.zd-drawer__status-dot {
+  display: none;
+}
+
+.zd-drawer__status-text {
+  font-size: var(--zd-font-size-xs);
+  color: var(--zd-text-secondary);
+  font-weight: var(--zd-font-weight-medium);
+}

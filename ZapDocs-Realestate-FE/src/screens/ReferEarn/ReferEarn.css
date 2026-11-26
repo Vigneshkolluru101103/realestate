@@ -1,0 +1,538 @@
+/* Refer & Earn Page Layout */
+.zd-refer-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* 1. Hero Section */
+.zd-refer-hero {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(239, 246, 255, 0.85) 100%);
+  backdrop-filter: var(--zd-glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--zd-glass-blur, blur(16px));
+  border: 1px solid var(--color-brand-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--zd-glass-shadow, var(--shadow-xs));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.zd-refer-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-brand);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.zd-refer-hero__headline {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.zd-refer-hero__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+/* Link input & actions inside hero */
+.zd-refer-share-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.zd-refer-share-box__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.zd-refer-link-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.zd-refer-link-input {
+  flex: 1;
+  box-sizing: border-box;
+  height: 38px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0 12px;
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  user-select: all;
+  transition: all var(--transition-fast);
+}
+
+.zd-refer-link-input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.zd-refer-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.zd-btn-whatsapp {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.92) 0%, rgba(5, 150, 105, 0.96) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 36px;
+  padding: 0 16px;
+  border-radius: var(--radius-md, 8px);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.zd-btn-whatsapp:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.98) 0%, rgba(4, 120, 87, 1) 100%);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+/* 2. UPI Payout Status Card */
+.zd-upi-card {
+  background-color: var(--color-surface);
+  backdrop-filter: var(--zd-glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--zd-glass-blur, blur(16px));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: var(--zd-glass-shadow, var(--shadow-xs));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.zd-upi-card__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zd-upi-card__icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand);
+  flex-shrink: 0;
+}
+
+.zd-upi-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zd-upi-card__label {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.zd-upi-card__value-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zd-upi-card__value {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-family: monospace;
+}
+
+/* 3. Summary Metrics Grid (Aligned with Admin .metrics-grid-4) */
+.zd-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.zd-metric-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 180ms ease;
+}
+
+.zd-metric-card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.zd-metric-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zd-metric-card__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.zd-metric-card__icon {
+  color: var(--color-text-muted);
+}
+
+.zd-metric-card__value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.zd-metric-card__value--highlight {
+  color: var(--color-brand);
+}
+
+.zd-metric-card__value--success {
+  color: var(--status-success);
+}
+
+.zd-metric-card__subtext {
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+/* 4. Referral History Section (Matches Admin .table-container) */
+.zd-history-section {
+  background-color: var(--color-surface);
+  backdrop-filter: var(--zd-glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--zd-glass-blur, blur(16px));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--zd-glass-shadow, var(--shadow-xs));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.zd-history-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.zd-history-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zd-history-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.zd-history-subtitle {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Filters Toolbar */
+.zd-filters-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.zd-filter-pill {
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.zd-filter-pill:hover {
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+.zd-filter-pill--active {
+  background-color: var(--color-brand-light);
+  border-color: var(--color-brand-subtle);
+  color: var(--color-brand);
+  font-weight: 600;
+}
+
+/* Desktop History Table */
+.zd-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.zd-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.zd-history-table th {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.zd-history-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  vertical-align: middle;
+  font-size: 13px;
+}
+
+.zd-history-table tr:last-child td {
+  border-bottom: none;
+}
+
+.zd-history-table tr:hover td {
+  background-color: var(--color-surface-hover);
+}
+
+.zd-broker-name {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.zd-reward-amount {
+  font-weight: 600;
+  font-family: monospace;
+  color: var(--status-success);
+}
+
+/* Mobile Cards View (Hidden on desktop) */
+.zd-mobile-history-cards {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.zd-mobile-history-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zd-mobile-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.zd-mobile-card-label {
+  font-size: 11.5px;
+  color: var(--color-text-secondary);
+}
+
+/* Empty State */
+.zd-empty-history {
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.zd-empty-history__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+.zd-empty-history__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.zd-empty-history__desc {
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+  max-width: 420px;
+  line-height: 1.45;
+}
+
+/* Prototype Disclaimer Box */
+.zd-refer-prototype-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zd-refer-prototype-box__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zd-refer-prototype-box__title {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.zd-refer-prototype-notice {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .zd-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .zd-table-wrapper {
+    display: none;
+  }
+
+  .zd-mobile-history-cards {
+    display: flex;
+  }
+}
+
+@media (max-width: 640px) {
+  .zd-refer-hero {
+    padding: 20px;
+  }
+
+  .zd-refer-hero__headline {
+    font-size: var(--font-size-xl);
+  }
+
+  .zd-refer-link-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .zd-refer-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .zd-refer-actions-row button,
+  .zd-refer-actions-row a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zd-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zd-upi-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .zd-upi-card button {
+    width: 100%;
+  }
+
+  .zd-history-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .zd-filters-toolbar {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+}

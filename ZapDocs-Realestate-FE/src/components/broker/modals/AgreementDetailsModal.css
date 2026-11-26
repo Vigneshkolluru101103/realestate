@@ -1,0 +1,282 @@
+/* ============================================================
+   Agreement Details Modal Styles (Glassmorphism Light Theme)
+   ============================================================ */
+
+#modal-agreement-details.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+#modal-agreement-details .zd-details-modal-card {
+  width: min(640px, calc(100vw - 32px));
+  max-width: 640px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-radius: var(--radius-xl, 20px);
+  box-shadow: 0 24px 60px -10px rgba(15, 23, 42, 0.2), 0 10px 24px -5px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(220, 232, 248, 0.85);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  z-index: 10000;
+  animation: zdModalCardIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes zdModalCardIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.zd-details-header {
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zd-details-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.zd-details-body {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(85vh - 140px);
+  overflow-y: auto;
+}
+
+.zd-details-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(248, 250, 252, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.zd-details-banner__status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zd-details-badge-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.zd-details-type-pill {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.zd-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.zd-details-section-box {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.88);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zd-details-section-box:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+}
+
+.zd-details-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: #475569;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 2px;
+}
+
+.zd-details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12.5px;
+  gap: 8px;
+}
+
+.zd-details-label {
+  color: #64748b;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.zd-details-val {
+  color: #1e293b;
+  text-align: right;
+  word-break: break-word;
+}
+
+.zd-details-security-box {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.8) 0%, rgba(239, 246, 255, 0.8) 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zd-details-security-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.zd-security-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #15803d;
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.zd-security-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.zd-security-label {
+  color: #475569;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.zd-security-hash {
+  font-family: monospace;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: #0f172a;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+.zd-details-milestones-box {
+  background: rgba(248, 250, 252, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.zd-details-milestones-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.zd-milestone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.zd-details-footer {
+  padding: 16px 24px;
+  background: rgba(248, 250, 252, 0.85);
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .zd-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .zd-details-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .zd-details-footer > div {
+    flex-direction: column;
+    width: 100%;
+  }
+  .zd-details-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

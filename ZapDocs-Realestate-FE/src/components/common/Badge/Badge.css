@@ -1,0 +1,53 @@
+.zd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1;
+  border: 1px solid transparent;
+  font-family: inherit;
+}
+
+.zd-badge--sm {
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+.zd-badge--md {
+  font-size: 11.5px;
+  padding: 3px 8px;
+}
+
+.zd-badge--neutral {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border-color: #e5e7eb;
+}
+
+.zd-badge--primary {
+  background-color: var(--status-info-bg);
+  color: var(--status-info);
+  border-color: var(--status-info-border);
+}
+
+.zd-badge--success {
+  background-color: var(--status-success-bg);
+  color: var(--status-success);
+  border-color: var(--status-success-border);
+}
+
+.zd-badge--warning {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning);
+  border-color: var(--status-warning-border);
+}
+
+.zd-badge--danger {
+  background-color: var(--status-error-bg);
+  color: var(--status-error);
+  border-color: var(--status-error-border);
+}

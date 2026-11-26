@@ -1,0 +1,615 @@
+/* Clients Vault Styles */
+.zd-vault-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Page Header with Action Button */
+.zd-vault-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.zd-vault-header__left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 600px;
+}
+
+.zd-vault-header__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  line-height: 1.25;
+}
+
+.zd-vault-header__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* Controls Bar: Search & Filter Tabs */
+.zd-vault-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: var(--color-surface);
+  backdrop-filter: var(--zd-glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--zd-glass-blur, blur(16px));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: var(--zd-glass-shadow, var(--shadow-xs));
+}
+
+.zd-vault-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+
+.zd-vault-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.zd-vault-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 38px;
+  padding: 0 32px 0 36px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+}
+
+.zd-vault-search-input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  background-color: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.zd-vault-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zd-vault-search-clear:hover {
+  color: var(--color-text-primary);
+}
+
+/* Filter Tabs */
+.zd-vault-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 14px;
+}
+
+.zd-vault-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-md);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.zd-vault-tab-btn:hover {
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+}
+
+.zd-vault-tab-btn--active {
+  background-color: var(--color-brand-light);
+  color: var(--color-brand);
+  border-color: var(--color-brand-subtle);
+  font-weight: 600;
+}
+
+.zd-vault-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-secondary);
+}
+
+.zd-vault-tab-btn--active .zd-vault-tab-count {
+  background-color: var(--color-brand);
+  color: #ffffff;
+}
+
+/* Clients Grid / Cards Layout */
+.zd-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: 20px;
+}
+
+/* Client Card (Matches Admin .card) */
+.zd-client-card {
+  background-color: var(--color-surface);
+  backdrop-filter: var(--zd-glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--zd-glass-blur, blur(16px));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--zd-glass-shadow, var(--shadow-xs));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.zd-client-card:hover {
+  box-shadow: var(--zd-glass-shadow-hover, var(--shadow-md));
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+}
+
+/* Card Header: Name, Role Badge, and Actions */
+.zd-card-profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zd-card-profile-title {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.zd-card-client-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.zd-card-client-id {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  font-family: monospace;
+}
+
+/* Key Identity Details (Phone, Masked Aadhaar) */
+.zd-card-identities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.zd-identity-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+}
+
+.zd-identity-item svg {
+  color: var(--color-text-muted);
+}
+
+.zd-identity-aadhaar {
+  font-family: monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-primary);
+}
+
+/* Permanent Address Block (Separate from Property Address) */
+.zd-permanent-address-box {
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-brand);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zd-permanent-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.zd-permanent-text {
+  font-size: 12.5px;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+/* Linked Properties Section */
+.zd-linked-properties-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-surface-subtle);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+}
+
+.zd-linked-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.zd-linked-count-badge {
+  background-color: var(--color-brand-light);
+  color: var(--color-brand);
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.zd-properties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zd-property-subcard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.zd-property-subcard__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.zd-property-area {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.zd-property-address {
+  color: var(--color-text-secondary);
+  font-size: 11.5px;
+}
+
+.zd-property-financials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 4px;
+}
+
+.zd-property-financials strong {
+  color: var(--color-text-primary);
+}
+
+/* Card Action Buttons Row */
+.zd-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.zd-action-btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+/* Modals (Matches Admin .modal-overlay / .modal-content) */
+.zd-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 100;
+}
+
+.zd-modal-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  animation: zdModalFadeIn 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zd-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.zd-modal-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.zd-modal-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.zd-modal-subtitle {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.zd-modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.zd-modal-close-btn:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-subtle);
+}
+
+.zd-modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zd-modal-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  background-color: var(--color-surface-subtle);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+/* Form Groups & Inputs (Matches Admin .form-group / .form-input) */
+.zd-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.zd-form-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.zd-form-label .required {
+  color: var(--status-error);
+}
+
+.zd-form-input,
+.zd-form-select,
+.zd-form-textarea {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 13.5px;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.zd-form-textarea {
+  height: auto;
+  padding: 8px 12px;
+}
+
+.zd-form-input:focus,
+.zd-form-select:focus,
+.zd-form-textarea:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 2px var(--color-brand-subtle);
+}
+
+.zd-form-error {
+  font-size: 11px;
+  color: var(--status-error);
+  font-weight: 500;
+}
+
+.zd-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Privacy & Prototype Banner */
+.zd-vault-disclaimer {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+/* Empty State */
+.zd-vault-empty {
+  padding: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.zd-vault-empty__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .zd-clients-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .zd-client-card {
+    padding: 14px 12px;
+    gap: 12px;
+  }
+
+  .zd-card-identities {
+    gap: 6px;
+  }
+
+  .zd-identity-item {
+    font-size: 11.5px;
+    padding: 2.5px 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .zd-vault-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .zd-vault-header button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zd-card-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .zd-card-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .zd-card-actions button,
+  .zd-card-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .zd-form-row {
+    grid-template-columns: 1fr;
+  }
+}
